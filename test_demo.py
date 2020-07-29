@@ -3,7 +3,8 @@
 
 def demo_func(a, b, c):
     print(a,
-        b
+        b,
+        c
     )
 
 

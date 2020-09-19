@@ -3,8 +3,13 @@ on:
   watch:
     types: started
 jobs:
-  Ubuntu:
-    runs-on: ubuntu-latest
+  SSH:
+    name: Run on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 4
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - name: SSH connection to Actions
       uses: csexton/debugger-action@master
